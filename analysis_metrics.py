@@ -486,7 +486,7 @@ class RiskAnalyzer:
             risk_data = risk_assessment['component_risks'][comp_id]
 
             # Count vulnerabilities for this component
-            vuln_count = len([v for v_key in self.graph.vulnerabilities.keys()
+            vuln_count = len([1 for v_key in self.graph.vulnerabilities.keys()
                             if comp_id in v_key])
 
             export_data.append({

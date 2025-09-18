@@ -1,0 +1,13 @@
+component_id,component_name,version,software_type,vendor,criticality_score,is_compromised,dependencies_count,dependents_count,vulnerability_count,base_risk,criticality_risk,dependency_risk,vulnerability_risk,compound_risk_score,impact_score
+homeassistant:2024.1.0,homeassistant,2024.1.0,application,Home Assistant,10.0,True,11,0,0,9,10.0,0,0,5.199999999999999,10.0
+aiohttp:3.12.15,aiohttp,3.12.15,framework,aio-libs,9.0,True,2,1,1,7,9.0,1,10,6.6,14.0
+sqlalchemy:2.0.41,sqlalchemy,2.0.41,library,SQLAlchemy,8.5,False,0,1,1,6,8.5,1,4,4.975,13.5
+jinja2:3.1.6,jinja2,3.1.6,library,Pallets,7.0,False,0,1,0,6,7.0,1,0,3.8,12.0
+cryptography:45.0.7,cryptography,45.0.7,library,PyCA,9.5,False,0,1,0,6,9.5,1,0,4.425,14.5
+pyyaml:6.0.2,pyyaml,6.0.2,library,PyYAML,8.0,False,0,1,1,6,8.0,1,7,5.45,13.0
+requests:2.32.5,requests,2.32.5,library,PSF,7.5,True,1,1,0,6,7.5,1,0,3.925,12.5
+zeroconf:0.147.2,zeroconf,0.147.2,library,python-zeroconf,6.5,False,0,1,0,6,6.5,1,0,3.675,11.5
+voluptuous:0.15.2,voluptuous,0.15.2,library,Alec Thomas,6.0,False,0,1,0,6,6.0,1,0,3.55,11.0
+home-assistant-bluetooth:1.12.2,home-assistant-bluetooth,1.12.2,library,Home Assistant,5.5,False,0,1,0,6,5.5,1,0,3.425,10.5
+aiodns:3.2.0,aiodns,3.2.0,library,Saúl Ibarra Corretgé,5.0,False,0,2,0,6,5.0,2,0,3.55,14.5
+certifi:2024.8.30,certifi,2024.8.30,library,Certifi,8.0,True,0,3,1,6,8.0,3,7,5.95,21.25

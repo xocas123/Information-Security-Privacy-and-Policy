@@ -1,0 +1,255 @@
+{
+  "name": "Home Assistant Core Dependencies",
+  "components": {
+    "homeassistant:2024.1.0": {
+      "name": "homeassistant",
+      "version": "2024.1.0",
+      "software_type": "application",
+      "vendor": "Home Assistant",
+      "description": "Open source home automation platform",
+      "is_compromised": true,
+      "compromise_time": "2025-10-12T22:03:29.431675",
+      "patch_time_days": 30,
+      "criticality_score": 10.0
+    },
+    "aiohttp:3.12.15": {
+      "name": "aiohttp",
+      "version": "3.12.15",
+      "software_type": "framework",
+      "vendor": "aio-libs",
+      "description": "Async HTTP client/server for asyncio and Python",
+      "is_compromised": true,
+      "compromise_time": "2025-10-03T22:03:29.431675",
+      "patch_time_days": 30,
+      "criticality_score": 9.0
+    },
+    "sqlalchemy:2.0.41": {
+      "name": "sqlalchemy",
+      "version": "2.0.41",
+      "software_type": "library",
+      "vendor": "SQLAlchemy",
+      "description": "Database toolkit and ORM",
+      "is_compromised": false,
+      "compromise_time": null,
+      "patch_time_days": 30,
+      "criticality_score": 8.5
+    },
+    "jinja2:3.1.6": {
+      "name": "jinja2",
+      "version": "3.1.6",
+      "software_type": "library",
+      "vendor": "Pallets",
+      "description": "Template engine for Python",
+      "is_compromised": false,
+      "compromise_time": null,
+      "patch_time_days": 30,
+      "criticality_score": 7.0
+    },
+    "cryptography:45.0.7": {
+      "name": "cryptography",
+      "version": "45.0.7",
+      "software_type": "library",
+      "vendor": "PyCA",
+      "description": "Cryptographic recipes and primitives",
+      "is_compromised": false,
+      "compromise_time": null,
+      "patch_time_days": 30,
+      "criticality_score": 9.5
+    },
+    "pyyaml:6.0.2": {
+      "name": "pyyaml",
+      "version": "6.0.2",
+      "software_type": "library",
+      "vendor": "PyYAML",
+      "description": "YAML parser and emitter for Python",
+      "is_compromised": false,
+      "compromise_time": null,
+      "patch_time_days": 30,
+      "criticality_score": 8.0
+    },
+    "requests:2.32.5": {
+      "name": "requests",
+      "version": "2.32.5",
+      "software_type": "library",
+      "vendor": "PSF",
+      "description": "HTTP library for Python",
+      "is_compromised": true,
+      "compromise_time": "2025-10-04T22:03:29.431675",
+      "patch_time_days": 30,
+      "criticality_score": 7.5
+    },
+    "zeroconf:0.147.2": {
+      "name": "zeroconf",
+      "version": "0.147.2",
+      "software_type": "library",
+      "vendor": "python-zeroconf",
+      "description": "Zero-configuration networking (Bonjour/Avahi)",
+      "is_compromised": false,
+      "compromise_time": null,
+      "patch_time_days": 30,
+      "criticality_score": 6.5
+    },
+    "voluptuous:0.15.2": {
+      "name": "voluptuous",
+      "version": "0.15.2",
+      "software_type": "library",
+      "vendor": "Alec Thomas",
+      "description": "Data validation library",
+      "is_compromised": false,
+      "compromise_time": null,
+      "patch_time_days": 30,
+      "criticality_score": 6.0
+    },
+    "home-assistant-bluetooth:1.12.2": {
+      "name": "home-assistant-bluetooth",
+      "version": "1.12.2",
+      "software_type": "library",
+      "vendor": "Home Assistant",
+      "description": "Bluetooth integration for Home Assistant",
+      "is_compromised": false,
+      "compromise_time": null,
+      "patch_time_days": 30,
+      "criticality_score": 5.5
+    },
+    "aiodns:3.2.0": {
+      "name": "aiodns",
+      "version": "3.2.0",
+      "software_type": "library",
+      "vendor": "Sa\u00fal Ibarra Corretg\u00e9",
+      "description": "Simple DNS resolver for asyncio",
+      "is_compromised": false,
+      "compromise_time": null,
+      "patch_time_days": 30,
+      "criticality_score": 5.0
+    },
+    "certifi:2024.8.30": {
+      "name": "certifi",
+      "version": "2024.8.30",
+      "software_type": "library",
+      "vendor": "Certifi",
+      "description": "Python package for providing Mozilla's CA certificates",
+      "is_compromised": true,
+      "compromise_time": "2025-09-18T22:03:29.431675",
+      "patch_time_days": 30,
+      "criticality_score": 8.0
+    }
+  },
+  "dependencies": [
+    {
+      "from": "aiohttp:3.12.15",
+      "to": "homeassistant:2024.1.0",
+      "type": "direct"
+    },
+    {
+      "from": "sqlalchemy:2.0.41",
+      "to": "homeassistant:2024.1.0",
+      "type": "direct"
+    },
+    {
+      "from": "jinja2:3.1.6",
+      "to": "homeassistant:2024.1.0",
+      "type": "direct"
+    },
+    {
+      "from": "cryptography:45.0.7",
+      "to": "homeassistant:2024.1.0",
+      "type": "direct"
+    },
+    {
+      "from": "pyyaml:6.0.2",
+      "to": "homeassistant:2024.1.0",
+      "type": "direct"
+    },
+    {
+      "from": "requests:2.32.5",
+      "to": "homeassistant:2024.1.0",
+      "type": "direct"
+    },
+    {
+      "from": "zeroconf:0.147.2",
+      "to": "homeassistant:2024.1.0",
+      "type": "direct"
+    },
+    {
+      "from": "voluptuous:0.15.2",
+      "to": "homeassistant:2024.1.0",
+      "type": "direct"
+    },
+    {
+      "from": "home-assistant-bluetooth:1.12.2",
+      "to": "homeassistant:2024.1.0",
+      "type": "direct"
+    },
+    {
+      "from": "aiodns:3.2.0",
+      "to": "aiohttp:3.12.15",
+      "type": "direct"
+    },
+    {
+      "from": "aiodns:3.2.0",
+      "to": "homeassistant:2024.1.0",
+      "type": "transitive"
+    },
+    {
+      "from": "certifi:2024.8.30",
+      "to": "aiohttp:3.12.15",
+      "type": "direct"
+    },
+    {
+      "from": "certifi:2024.8.30",
+      "to": "requests:2.32.5",
+      "type": "direct"
+    },
+    {
+      "from": "certifi:2024.8.30",
+      "to": "homeassistant:2024.1.0",
+      "type": "transitive"
+    }
+  ],
+  "vulnerabilities": {
+    "certifi:2024.8.30:CVE-2023-40217": {
+      "cve_id": "CVE-2023-40217",
+      "severity": "high",
+      "description": "TLS handshake bypass vulnerability in Python SSL module",
+      "affected_versions": [
+        "2024.8.30"
+      ],
+      "discovery_date": "2023-08-25T00:00:00",
+      "patch_available": true,
+      "exploit_probability": 0.4
+    },
+    "aiohttp:3.12.15:CVE-2024-XXXX": {
+      "cve_id": "CVE-2024-XXXX",
+      "severity": "critical",
+      "description": "HTTP request smuggling vulnerability in aiohttp",
+      "affected_versions": [
+        "3.12.15"
+      ],
+      "discovery_date": "2024-01-15T00:00:00",
+      "patch_available": false,
+      "exploit_probability": 0.8
+    },
+    "pyyaml:6.0.2:CVE-2020-14343": {
+      "cve_id": "CVE-2020-14343",
+      "severity": "high",
+      "description": "Arbitrary code execution through unsafe YAML loading",
+      "affected_versions": [
+        "6.0.2"
+      ],
+      "discovery_date": "2020-07-14T00:00:00",
+      "patch_available": true,
+      "exploit_probability": 0.6
+    },
+    "sqlalchemy:2.0.41:CVE-2024-YYYY": {
+      "cve_id": "CVE-2024-YYYY",
+      "severity": "medium",
+      "description": "SQL injection in SQLAlchemy query construction",
+      "affected_versions": [
+        "2.0.41"
+      ],
+      "discovery_date": "2024-02-01T00:00:00",
+      "patch_available": true,
+      "exploit_probability": 0.3
+    }
+  }
+}
