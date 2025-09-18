@@ -1,0 +1,94 @@
+{
+  "name": "requests Dependencies",
+  "export_timestamp": "2025-09-18T22:43:26.694848",
+  "components": {
+    "requests:main": {
+      "name": "requests",
+      "version": "main",
+      "software_type": "application",
+      "vendor": "requests",
+      "description": "Main application from https://github.com/requests/requests",
+      "is_compromised": false,
+      "compromise_time": null,
+      "patch_time_days": 30,
+      "criticality_score": 10.0
+    },
+    "charset_normalizer:latest": {
+      "name": "charset_normalizer",
+      "version": "latest",
+      "software_type": "library",
+      "vendor": "Unknown",
+      "description": "Dependency from python ecosystem",
+      "is_compromised": false,
+      "compromise_time": null,
+      "patch_time_days": 30,
+      "criticality_score": 5.0
+    },
+    "idna:2.5": {
+      "name": "idna",
+      "version": "2.5",
+      "software_type": "library",
+      "vendor": "Unknown",
+      "description": "Dependency from python ecosystem",
+      "is_compromised": false,
+      "compromise_time": null,
+      "patch_time_days": 30,
+      "criticality_score": 5.0
+    },
+    "urllib3:1.21.1": {
+      "name": "urllib3",
+      "version": "1.21.1",
+      "software_type": "library",
+      "vendor": "Unknown",
+      "description": "Dependency from python ecosystem",
+      "is_compromised": false,
+      "compromise_time": null,
+      "patch_time_days": 30,
+      "criticality_score": 5.0
+    },
+    "certifi:2017.4.17": {
+      "name": "certifi",
+      "version": "2017.4.17",
+      "software_type": "library",
+      "vendor": "Unknown",
+      "description": "Dependency from python ecosystem",
+      "is_compromised": false,
+      "compromise_time": null,
+      "patch_time_days": 30,
+      "criticality_score": 5.0
+    }
+  },
+  "dependencies": [
+    {
+      "from": "charset_normalizer:latest",
+      "to": "requests:main",
+      "type": "direct"
+    },
+    {
+      "from": "idna:2.5",
+      "to": "requests:main",
+      "type": "direct"
+    },
+    {
+      "from": "urllib3:1.21.1",
+      "to": "requests:main",
+      "type": "direct"
+    },
+    {
+      "from": "certifi:2017.4.17",
+      "to": "requests:main",
+      "type": "direct"
+    }
+  ],
+  "vulnerabilities": {},
+  "graph_statistics": {
+    "total_components": 5,
+    "total_dependencies": 4,
+    "applications": 1,
+    "libraries": 4,
+    "services": 0,
+    "compromised_components": 0,
+    "average_dependencies_per_component": 0.8,
+    "critical_components": 0
+  }
+}

@@ -104,27 +104,99 @@ class DependencyGraph:
                 component.is_compromised = True
                 component.compromise_time = vulnerability.discovery_date
 
-    def get_dependencies(self, component_id: str, direct_only: bool = False) -> List[str]:
-        """Get all dependencies of a component"""
+    def get_dependencies(self, component_id: str, direct_only: bool = False, max_depth: int = None) -> List[str]:
+        """Get dependencies of a component with configurable depth
+
+        Args:
+            component_id: The component to analyze
+            direct_only: If True, only return direct dependencies
+            max_depth: Maximum depth to traverse (None for unlimited)
+        """
         if component_id not in self.graph:
             return []
 
         if direct_only:
             return list(self.graph.predecessors(component_id))
-        else:
-            # Get all transitive dependencies
-            return list(nx.ancestors(self.graph, component_id))
 
-    def get_dependents(self, component_id: str, direct_only: bool = False) -> List[str]:
-        """Get all components that depend on this component"""
+        if max_depth is None:
+            # Get all transitive dependencies (original behavior)
+            return list(nx.ancestors(self.graph, component_id))
+        else:
+            # Get dependencies up to specified depth
+            return self._get_dependencies_with_depth(component_id, max_depth)
+
+    def get_dependents(self, component_id: str, direct_only: bool = False, max_depth: int = None) -> List[str]:
+        """Get all components that depend on this component with configurable depth
+
+        Args:
+            component_id: The component to analyze
+            direct_only: If True, only return direct dependents
+            max_depth: Maximum depth to traverse (None for unlimited)
+        """
         if component_id not in self.graph:
             return []
 
         if direct_only:
             return list(self.graph.successors(component_id))
-        else:
-            # Get all transitive dependents
+
+        if max_depth is None:
+            # Get all transitive dependents (original behavior)
             return list(nx.descendants(self.graph, component_id))
+        else:
+            # Get dependents up to specified depth
+            return self._get_dependents_with_depth(component_id, max_depth)
+
+    def _get_dependencies_with_depth(self, component_id: str, max_depth: int) -> List[str]:
+        """Helper method to get dependencies within specified depth"""
+        if max_depth <= 0:
+            return []
+
+        visited = set()
+        to_visit = [(component_id, 0)]  # (node, current_depth)
+        dependencies = set()
+
+        while to_visit:
+            current_node, depth = to_visit.pop(0)
+
+            if current_node in visited or depth >= max_depth:
+                continue
+
+            visited.add(current_node)
+
+            # Get direct dependencies (predecessors)
+            for predecessor in self.graph.predecessors(current_node):
+                if predecessor not in visited:
+                    dependencies.add(predecessor)
+                    if depth + 1 < max_depth:
+                        to_visit.append((predecessor, depth + 1))
+
+        return list(dependencies)
+
+    def _get_dependents_with_depth(self, component_id: str, max_depth: int) -> List[str]:
+        """Helper method to get dependents within specified depth"""
+        if max_depth <= 0:
+            return []
+
+        visited = set()
+        to_visit = [(component_id, 0)]  # (node, current_depth)
+        dependents = set()
+
+        while to_visit:
+            current_node, depth = to_visit.pop(0)
+
+            if current_node in visited or depth >= max_depth:
+                continue
+
+            visited.add(current_node)
+
+            # Get direct dependents (successors)
+            for successor in self.graph.successors(current_node):
+                if successor not in visited:
+                    dependents.add(successor)
+                    if depth + 1 < max_depth:
+                        to_visit.append((successor, depth + 1))
+
+        return list(dependents)
 
     def find_critical_components(self, min_dependents: int = 5) -> List[Tuple[str, int]]:
         """Find components with the most dependents (potential single points of failure)"""
@@ -136,26 +208,128 @@ class DependencyGraph:
 
         return sorted(critical_components, key=lambda x: x[1], reverse=True)
 
-    def calculate_impact_score(self, component_id: str) -> float:
-        """Calculate the potential impact of compromising a component"""
+    def calculate_impact_score(self, component_id: str, max_depth: int = None) -> float:
+        """Calculate the potential impact of compromising a component
+
+        Args:
+            component_id: The component to analyze
+            max_depth: Maximum depth for dependent analysis (None for unlimited)
+        """
         if component_id not in self.components:
             return 0.0
 
         component = self.components[component_id]
-        dependents = self.get_dependents(component_id)
+        dependents = self.get_dependents(component_id, max_depth=max_depth)
 
         # Base impact from component's own criticality
         impact = component.criticality_score
 
-        # Add impact from all affected dependents
-        for dependent_id in dependents:
-            if dependent_id in self.components:
-                dependent = self.components[dependent_id]
-                impact += dependent.criticality_score * 0.5  # Transitive impact is reduced
+        # Add impact from all affected dependents with depth-based weighting
+        if max_depth is not None:
+            # Calculate impact with depth weighting
+            impact += self._calculate_depth_weighted_impact(component_id, max_depth)
+        else:
+            # Original behavior - simple weighting
+            for dependent_id in dependents:
+                if dependent_id in self.components:
+                    dependent = self.components[dependent_id]
+                    impact += dependent.criticality_score * 0.5  # Transitive impact is reduced
 
         return impact
 
-    def get_graph_stats(self) -> Dict[str, Any]:
+    def _calculate_depth_weighted_impact(self, component_id: str, max_depth: int) -> float:
+        """Calculate impact with depth-based weighting (closer dependencies have higher impact)"""
+        if max_depth <= 0:
+            return 0.0
+
+        total_impact = 0.0
+        visited = set()
+        to_visit = [(component_id, 0)]  # (node, current_depth)
+
+        while to_visit:
+            current_node, depth = to_visit.pop(0)
+
+            if current_node in visited or depth >= max_depth:
+                continue
+
+            visited.add(current_node)
+
+            # Get direct dependents and calculate their weighted impact
+            for successor in self.graph.successors(current_node):
+                if successor not in visited and successor in self.components:
+                    dependent = self.components[successor]
+
+                    # Weight decreases with depth: depth 1 = 0.8, depth 2 = 0.6, etc.
+                    depth_weight = max(0.1, 1.0 - (depth + 1) * 0.2)
+                    weighted_impact = dependent.criticality_score * depth_weight
+                    total_impact += weighted_impact
+
+                    if depth + 1 < max_depth:
+                        to_visit.append((successor, depth + 1))
+
+        return total_impact
+
+    def analyze_dependency_depth(self, component_id: str, max_depth: int = 5) -> Dict[str, Any]:
+        """Analyze dependency relationships at different depths
+
+        Args:
+            component_id: The component to analyze
+            max_depth: Maximum depth to analyze
+
+        Returns:
+            Dictionary with depth analysis data
+        """
+        if component_id not in self.components:
+            return {"error": f"Component {component_id} not found"}
+
+        component = self.components[component_id]
+        analysis = {
+            "component_name": component.name,
+            "component_id": component_id,
+            "max_depth_analyzed": max_depth,
+            "dependencies_by_depth": {},
+            "dependents_by_depth": {},
+            "impact_by_depth": {},
+            "summary": {}
+        }
+
+        # Analyze dependencies at each depth level
+        for depth in range(1, max_depth + 1):
+            dependencies = self.get_dependencies(component_id, max_depth=depth)
+            dependents = self.get_dependents(component_id, max_depth=depth)
+            impact = self.calculate_impact_score(component_id, max_depth=depth)
+
+            analysis["dependencies_by_depth"][str(depth)] = {
+                "count": len(dependencies),
+                "components": [self.components[dep_id].name for dep_id in dependencies if dep_id in self.components]
+            }
+
+            analysis["dependents_by_depth"][str(depth)] = {
+                "count": len(dependents),
+                "components": [self.components[dep_id].name for dep_id in dependents if dep_id in self.components]
+            }
+
+            analysis["impact_by_depth"][str(depth)] = round(impact, 2)
+
+        # Calculate summary statistics
+        all_dependencies = self.get_dependencies(component_id)
+        all_dependents = self.get_dependents(component_id)
+
+        analysis["summary"] = {
+            "total_dependencies": len(all_dependencies),
+            "total_dependents": len(all_dependents),
+            "direct_dependencies": len(self.get_dependencies(component_id, direct_only=True)),
+            "direct_dependents": len(self.get_dependents(component_id, direct_only=True)),
+            "max_impact_unlimited": round(self.calculate_impact_score(component_id), 2),
+            "depth_impact_comparison": {
+                depth: analysis["impact_by_depth"][str(depth)]
+                for depth in range(1, min(max_depth + 1, 6))  # Show up to depth 5
+            }
+        }
+
+        return analysis
+
+    def get_graph_stats(self, max_depth: int = None) -> Dict[str, Any]:
         """Get basic statistics about the dependency graph"""
         return {
             "total_components": len(self.components),
@@ -175,10 +349,11 @@ class DependencyGraph:
             "critical_components": len(self.find_critical_components())
         }
 
-    def export_to_json(self, filepath: str) -> None:
-        """Export dependency graph to JSON format"""
+    def export_to_json(self, filepath: str = None, output_manager=None, project_name: str = None) -> str:
+        """Export dependency graph to JSON format with organized output management"""
         export_data = {
             "name": self.name,
+            "export_timestamp": datetime.now().isoformat(),
             "components": {
                 comp_id: {
                     "name": comp.name,
@@ -212,11 +387,20 @@ class DependencyGraph:
                     "exploit_probability": vuln.exploit_probability
                 }
                 for vuln_id, vuln in self.vulnerabilities.items()
-            }
+            },
+            "graph_statistics": self.get_graph_stats()
         }
 
-        with open(filepath, 'w') as f:
-            json.dump(export_data, f, indent=2)
+        # Use output manager if provided, otherwise use direct filepath
+        if output_manager and project_name:
+            saved_path = output_manager.save_dependency_graph(export_data, project_name)
+            return saved_path
+        elif filepath:
+            with open(filepath, 'w') as f:
+                json.dump(export_data, f, indent=2)
+            return filepath
+        else:
+            raise ValueError("Either output_manager+project_name or filepath must be provided")
 
     def visualize_graph(self, output_file: str = None, highlight_compromised: bool = True,
                        show_criticality: bool = True, layout: str = "spring") -> None:

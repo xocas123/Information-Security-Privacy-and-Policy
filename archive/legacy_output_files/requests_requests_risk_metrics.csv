@@ -1,0 +1,6 @@
+component_id,component_name,version,software_type,vendor,criticality_score,is_compromised,dependencies_count,dependents_count,vulnerability_count,base_risk,criticality_risk,dependency_risk,vulnerability_risk,compound_risk_score,impact_score
+requests:main,requests,main,application,requests,10.0,False,4,0,0,9,10.0,0,0,5.199999999999999,10.0
+charset_normalizer:latest,charset_normalizer,latest,library,Unknown,5.0,False,0,1,0,6,5.0,1,0,3.3,10.0
+idna:2.5,idna,2.5,library,Unknown,5.0,False,0,1,0,6,5.0,1,0,3.3,10.0
+urllib3:1.21.1,urllib3,1.21.1,library,Unknown,5.0,False,0,1,0,6,5.0,1,0,3.3,10.0
+certifi:2017.4.17,certifi,2017.4.17,library,Unknown,5.0,False,0,1,0,6,5.0,1,0,3.3,10.0

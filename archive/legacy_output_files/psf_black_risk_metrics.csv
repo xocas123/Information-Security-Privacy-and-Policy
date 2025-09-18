@@ -1,0 +1,10 @@
+component_id,component_name,version,software_type,vendor,criticality_score,is_compromised,dependencies_count,dependents_count,vulnerability_count,base_risk,criticality_risk,dependency_risk,vulnerability_risk,compound_risk_score,impact_score
+black:main,black,main,application,psf,10.0,False,8,0,0,9,10.0,0,0,5.199999999999999,10.0
+click:8.0.0,click,8.0.0,library,Unknown,5.0,False,0,1,0,6,5.0,1,0,3.3,10.0
+mypy_extensions:0.4.3,mypy_extensions,0.4.3,library,Unknown,5.0,False,0,1,0,6,5.0,1,0,3.3,10.0
+packaging:22.0,packaging,22.0,library,Unknown,5.0,False,0,1,0,6,5.0,1,0,3.3,10.0
+pathspec:0.9.0,pathspec,0.9.0,library,Unknown,5.0,False,0,1,0,6,5.0,1,0,3.3,10.0
+platformdirs:2,platformdirs,2,library,Unknown,5.0,False,0,1,0,6,5.0,1,0,3.3,10.0
+pytokens:0.1.10,pytokens,0.1.10,library,Unknown,5.0,False,0,1,0,6,5.0,1,0,3.3,10.0
+tomli:1.1.0,tomli,1.1.0,library,Unknown,5.0,False,0,1,0,6,5.0,1,0,3.3,10.0
+3:.11,3,.11,library,Unknown,5.0,False,0,1,0,6,5.0,1,0,3.3,10.0

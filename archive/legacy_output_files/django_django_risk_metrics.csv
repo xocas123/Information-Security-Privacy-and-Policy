@@ -1,0 +1,12 @@
+component_id,component_name,version,software_type,vendor,criticality_score,is_compromised,dependencies_count,dependents_count,vulnerability_count,base_risk,criticality_risk,dependency_risk,vulnerability_risk,compound_risk_score,impact_score
+django:main,django,main,application,django,10.0,False,10,0,0,9,10.0,0,0,5.199999999999999,10.0
+asgiref:3.9.1,asgiref,3.9.1,library,Unknown,5.0,False,0,1,0,6,5.0,1,0,3.3,10.0
+sqlparse:0.5.0,sqlparse,0.5.0,library,Unknown,5.0,False,0,1,0,6,5.0,1,0,3.3,10.0
+tzdata:latest,tzdata,latest,library,Unknown,5.0,False,0,1,0,6,5.0,1,0,3.3,10.0
+eslint:9.24.0,eslint,9.24.0,library,Unknown,5.0,False,0,1,0,6,5.0,1,0,3.3,10.0
+puppeteer:24.6.1,puppeteer,24.6.1,library,Unknown,5.0,False,0,1,0,6,5.0,1,0,3.3,10.0
+globals:16.0.0,globals,16.0.0,library,Unknown,5.0,False,0,1,0,6,5.0,1,0,3.3,10.0
+grunt:1.6.1,grunt,1.6.1,library,Unknown,5.0,False,0,1,0,6,5.0,1,0,3.3,10.0
+grunt-cli:1.5.0,grunt-cli,1.5.0,library,Unknown,5.0,False,0,1,0,6,5.0,1,0,3.3,10.0
+grunt-contrib-qunit:10.1.1,grunt-contrib-qunit,10.1.1,library,Unknown,5.0,False,0,1,0,6,5.0,1,0,3.3,10.0
+qunit:2.24.1,qunit,2.24.1,library,Unknown,5.0,False,0,1,0,6,5.0,1,0,3.3,10.0

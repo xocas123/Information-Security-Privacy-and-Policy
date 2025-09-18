@@ -1,0 +1,131 @@
+{
+  "name": "fastapi Dependencies",
+  "components": {
+    "fastapi:main": {
+      "name": "fastapi",
+      "version": "main",
+      "software_type": "application",
+      "vendor": "fastapi",
+      "description": "Main application from https://github.com/fastapi/fastapi",
+      "is_compromised": false,
+      "compromise_time": null,
+      "patch_time_days": 30,
+      "criticality_score": 10.0
+    },
+    "-e:latest": {
+      "name": "-e",
+      "version": "latest",
+      "software_type": "library",
+      "vendor": "Unknown",
+      "description": "Dependency from python ecosystem",
+      "is_compromised": false,
+      "compromise_time": null,
+      "patch_time_days": 30,
+      "criticality_score": 5.0
+    },
+    "-r:latest": {
+      "name": "-r",
+      "version": "latest",
+      "software_type": "library",
+      "vendor": "Unknown",
+      "description": "Dependency from python ecosystem",
+      "is_compromised": false,
+      "compromise_time": null,
+      "patch_time_days": 30,
+      "criticality_score": 5.0
+    },
+    "pre-commit:latest": {
+      "name": "pre-commit",
+      "version": "latest",
+      "software_type": "library",
+      "vendor": "Unknown",
+      "description": "Dependency from python ecosystem",
+      "is_compromised": false,
+      "compromise_time": null,
+      "patch_time_days": 30,
+      "criticality_score": 5.0
+    },
+    "playwright:latest": {
+      "name": "playwright",
+      "version": "latest",
+      "software_type": "library",
+      "vendor": "Unknown",
+      "description": "Dependency from python ecosystem",
+      "is_compromised": false,
+      "compromise_time": null,
+      "patch_time_days": 30,
+      "criticality_score": 5.0
+    },
+    "starlette:0.40.0": {
+      "name": "starlette",
+      "version": "0.40.0",
+      "software_type": "library",
+      "vendor": "Unknown",
+      "description": "Dependency from python ecosystem",
+      "is_compromised": false,
+      "compromise_time": null,
+      "patch_time_days": 30,
+      "criticality_score": 5.0
+    },
+    "pydantic:1.7.4": {
+      "name": "pydantic",
+      "version": "1.7.4",
+      "software_type": "library",
+      "vendor": "Unknown",
+      "description": "Dependency from python ecosystem",
+      "is_compromised": false,
+      "compromise_time": null,
+      "patch_time_days": 30,
+      "criticality_score": 5.0
+    },
+    "typing-extensions:4.8.0": {
+      "name": "typing-extensions",
+      "version": "4.8.0",
+      "software_type": "library",
+      "vendor": "Unknown",
+      "description": "Dependency from python ecosystem",
+      "is_compromised": false,
+      "compromise_time": null,
+      "patch_time_days": 30,
+      "criticality_score": 5.0
+    }
+  },
+  "dependencies": [
+    {
+      "from": "-e:latest",
+      "to": "fastapi:main",
+      "type": "direct"
+    },
+    {
+      "from": "-r:latest",
+      "to": "fastapi:main",
+      "type": "direct"
+    },
+    {
+      "from": "pre-commit:latest",
+      "to": "fastapi:main",
+      "type": "direct"
+    },
+    {
+      "from": "playwright:latest",
+      "to": "fastapi:main",
+      "type": "direct"
+    },
+    {
+      "from": "starlette:0.40.0",
+      "to": "fastapi:main",
+      "type": "direct"
+    },
+    {
+      "from": "pydantic:1.7.4",
+      "to": "fastapi:main",
+      "type": "direct"
+    },
+    {
+      "from": "typing-extensions:4.8.0",
+      "to": "fastapi:main",
+      "type": "direct"
+    }
+  ],
+  "vulnerabilities": {}
+}

@@ -1,0 +1,46 @@
+{
+  "name": "power-grid-model Dependencies",
+  "export_timestamp": "2025-09-18T22:51:15.349626",
+  "components": {
+    "power-grid-model:main": {
+      "name": "power-grid-model",
+      "version": "main",
+      "software_type": "application",
+      "vendor": "PowerGridModel",
+      "description": "Main application from https://github.com/PowerGridModel/power-grid-model",
+      "is_compromised": false,
+      "compromise_time": null,
+      "patch_time_days": 30,
+      "criticality_score": 10.0
+    },
+    "numpy:1.21.0": {
+      "name": "numpy",
+      "version": "1.21.0",
+      "software_type": "library",
+      "vendor": "Unknown",
+      "description": "Dependency from python ecosystem",
+      "is_compromised": false,
+      "compromise_time": null,
+      "patch_time_days": 30,
+      "criticality_score": 5.0
+    }
+  },
+  "dependencies": [
+    {
+      "from": "numpy:1.21.0",
+      "to": "power-grid-model:main",
+      "type": "direct"
+    }
+  ],
+  "vulnerabilities": {},
+  "graph_statistics": {
+    "total_components": 2,
+    "total_dependencies": 1,
+    "applications": 1,
+    "libraries": 1,
+    "services": 0,
+    "compromised_components": 0,
+    "average_dependencies_per_component": 0.5,
+    "critical_components": 0
+  }
+}

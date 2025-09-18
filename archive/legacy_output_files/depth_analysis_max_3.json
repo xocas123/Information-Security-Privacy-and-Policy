@@ -1,0 +1,62 @@
+{
+  "component_name": "certifi",
+  "component_id": "certifi:2024.8.30",
+  "max_depth_analyzed": 3,
+  "dependencies_by_depth": {
+    "1": {
+      "count": 0,
+      "components": []
+    },
+    "2": {
+      "count": 0,
+      "components": []
+    },
+    "3": {
+      "count": 0,
+      "components": []
+    }
+  },
+  "dependents_by_depth": {
+    "1": {
+      "count": 3,
+      "components": [
+        "homeassistant",
+        "aiohttp",
+        "requests"
+      ]
+    },
+    "2": {
+      "count": 3,
+      "components": [
+        "homeassistant",
+        "aiohttp",
+        "requests"
+      ]
+    },
+    "3": {
+      "count": 3,
+      "components": [
+        "homeassistant",
+        "aiohttp",
+        "requests"
+      ]
+    }
+  },
+  "impact_by_depth": {
+    "1": 29.2,
+    "2": 41.2,
+    "3": 41.2
+  },
+  "summary": {
+    "total_dependencies": 0,
+    "total_dependents": 3,
+    "direct_dependencies": 0,
+    "direct_dependents": 3,
+    "max_impact_unlimited": 21.25,
+    "depth_impact_comparison": {
+      "1": 29.2,
+      "2": 41.2,
+      "3": 41.2
+    }
+  }
+}

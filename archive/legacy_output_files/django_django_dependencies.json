@@ -1,0 +1,179 @@
+{
+  "name": "django Dependencies",
+  "components": {
+    "django:main": {
+      "name": "django",
+      "version": "main",
+      "software_type": "application",
+      "vendor": "django",
+      "description": "Main application from https://github.com/django/django",
+      "is_compromised": false,
+      "compromise_time": null,
+      "patch_time_days": 30,
+      "criticality_score": 10.0
+    },
+    "asgiref:3.9.1": {
+      "name": "asgiref",
+      "version": "3.9.1",
+      "software_type": "library",
+      "vendor": "Unknown",
+      "description": "Dependency from python ecosystem",
+      "is_compromised": false,
+      "compromise_time": null,
+      "patch_time_days": 30,
+      "criticality_score": 5.0
+    },
+    "sqlparse:0.5.0": {
+      "name": "sqlparse",
+      "version": "0.5.0",
+      "software_type": "library",
+      "vendor": "Unknown",
+      "description": "Dependency from python ecosystem",
+      "is_compromised": false,
+      "compromise_time": null,
+      "patch_time_days": 30,
+      "criticality_score": 5.0
+    },
+    "tzdata:latest": {
+      "name": "tzdata",
+      "version": "latest",
+      "software_type": "library",
+      "vendor": "Unknown",
+      "description": "Dependency from python ecosystem",
+      "is_compromised": false,
+      "compromise_time": null,
+      "patch_time_days": 30,
+      "criticality_score": 5.0
+    },
+    "eslint:9.24.0": {
+      "name": "eslint",
+      "version": "9.24.0",
+      "software_type": "library",
+      "vendor": "Unknown",
+      "description": "Dependency from python ecosystem",
+      "is_compromised": false,
+      "compromise_time": null,
+      "patch_time_days": 30,
+      "criticality_score": 5.0
+    },
+    "puppeteer:24.6.1": {
+      "name": "puppeteer",
+      "version": "24.6.1",
+      "software_type": "library",
+      "vendor": "Unknown",
+      "description": "Dependency from python ecosystem",
+      "is_compromised": false,
+      "compromise_time": null,
+      "patch_time_days": 30,
+      "criticality_score": 5.0
+    },
+    "globals:16.0.0": {
+      "name": "globals",
+      "version": "16.0.0",
+      "software_type": "library",
+      "vendor": "Unknown",
+      "description": "Dependency from python ecosystem",
+      "is_compromised": false,
+      "compromise_time": null,
+      "patch_time_days": 30,
+      "criticality_score": 5.0
+    },
+    "grunt:1.6.1": {
+      "name": "grunt",
+      "version": "1.6.1",
+      "software_type": "library",
+      "vendor": "Unknown",
+      "description": "Dependency from python ecosystem",
+      "is_compromised": false,
+      "compromise_time": null,
+      "patch_time_days": 30,
+      "criticality_score": 5.0
+    },
+    "grunt-cli:1.5.0": {
+      "name": "grunt-cli",
+      "version": "1.5.0",
+      "software_type": "library",
+      "vendor": "Unknown",
+      "description": "Dependency from python ecosystem",
+      "is_compromised": false,
+      "compromise_time": null,
+      "patch_time_days": 30,
+      "criticality_score": 5.0
+    },
+    "grunt-contrib-qunit:10.1.1": {
+      "name": "grunt-contrib-qunit",
+      "version": "10.1.1",
+      "software_type": "library",
+      "vendor": "Unknown",
+      "description": "Dependency from python ecosystem",
+      "is_compromised": false,
+      "compromise_time": null,
+      "patch_time_days": 30,
+      "criticality_score": 5.0
+    },
+    "qunit:2.24.1": {
+      "name": "qunit",
+      "version": "2.24.1",
+      "software_type": "library",
+      "vendor": "Unknown",
+      "description": "Dependency from python ecosystem",
+      "is_compromised": false,
+      "compromise_time": null,
+      "patch_time_days": 30,
+      "criticality_score": 5.0
+    }
+  },
+  "dependencies": [
+    {
+      "from": "asgiref:3.9.1",
+      "to": "django:main",
+      "type": "direct"
+    },
+    {
+      "from": "sqlparse:0.5.0",
+      "to": "django:main",
+      "type": "direct"
+    },
+    {
+      "from": "tzdata:latest",
+      "to": "django:main",
+      "type": "direct"
+    },
+    {
+      "from": "eslint:9.24.0",
+      "to": "django:main",
+      "type": "direct"
+    },
+    {
+      "from": "puppeteer:24.6.1",
+      "to": "django:main",
+      "type": "direct"
+    },
+    {
+      "from": "globals:16.0.0",
+      "to": "django:main",
+      "type": "direct"
+    },
+    {
+      "from": "grunt:1.6.1",
+      "to": "django:main",
+      "type": "direct"
+    },
+    {
+      "from": "grunt-cli:1.5.0",
+      "to": "django:main",
+      "type": "direct"
+    },
+    {
+      "from": "grunt-contrib-qunit:10.1.1",
+      "to": "django:main",
+      "type": "direct"
+    },
+    {
+      "from": "qunit:2.24.1",
+      "to": "django:main",
+      "type": "direct"
+    }
+  ],
+  "vulnerabilities": {}
+}

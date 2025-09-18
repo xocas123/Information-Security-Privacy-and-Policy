@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "name": "power-grid-model",
+    "repository_url": "https://github.com/PowerGridModel/power-grid-model",
+    "analysis_parameters": {
+      "max_depth": 2,
+      "max_components": 30
+    }
+  },
+  "analysis_results": {
+    "repo_info": {
+      "owner": "PowerGridModel",
+      "repo": "power-grid-model",
+      "branch": "main"
+    },
+    "stats": {
+      "total_components": 2,
+      "total_dependencies": 1,
+      "applications": 1,
+      "libraries": 1,
+      "services": 0,
+      "compromised_components": 0,
+      "average_dependencies_per_component": 0.5,
+      "critical_components": 0
+    },
+    "risk_assessment": {
+      "overall_risk_score": 4.25,
+      "total_components": 2,
+      "high_risk_components": 0,
+      "high_risk_percentage": 0.0,
+      "component_risks": {
+        "power-grid-model:main": {
+          "component_name": "power-grid-model",
+          "base_risk": 9,
+          "criticality_risk": 10.0,
+          "dependency_risk": 0,
+          "vulnerability_risk": 0,
+          "compound_risk": 5.199999999999999
+        },
+        "numpy:1.21.0": {
+          "component_name": "numpy",
+          "base_risk": 6,
+          "criticality_risk": 5.0,
+          "dependency_risk": 1,
+          "vulnerability_risk": 0,
+          "compound_risk": 3.3
+        }
+      },
+      "risk_distribution": {
+        "low": 0,
+        "medium": 2,
+        "high": 0,
+        "critical": 0
+      },
+      "critical_paths": []
+    },
+    "critical_components": [
+      [
+        "numpy:1.21.0",
+        1
+      ]
+    ]
+  },
+  "file_outputs": {
+    "dependency_graph": "outputs\\graphs\\power-grid-model_dependencies_20250918_225115.json",
+    "risk_metrics": "outputs\\metrics\\power-grid-model_risk_metrics_20250918_225115.csv"
+  }
+}

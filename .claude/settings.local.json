@@ -3,7 +3,9 @@
     "allow": [
       "WebFetch(domain:github.com)",
       "WebFetch(domain:raw.githubusercontent.com)",
-      "Bash(python test_home_assistant.py)"
+      "Bash(python test_home_assistant.py)",
+      "Bash(python test_depth_analysis.py:*)",
+      "Bash(python:*)"
     ],
     "deny": [],
     "ask": []
